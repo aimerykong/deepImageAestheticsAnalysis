@@ -1,8 +1,8 @@
 We are releasing our codes/demo/dataset used in our project of image aesthetics analysis. This project is jointed done in Adobe Research and UCI.
 
-The AADB dataset is large (2.0GB), so we attach it to google drive. The link is 
+The AADB dataset is large (datasetImages.zip, 2.0GB), so we attach it to google drive. The link is 
 https://drive.google.com/open?id=0BxeylfSgpk1MOVduWGxyVlJFUHM
-from where a small AADB can also be downloaded with resized images (256x256 pixel resolution, ~130MB).
+from where a small AADB can also be downloaded with resized images (256x256 pixel resolution, datasetImages_warp256.zip, 130MB).
 
 Technically, the rank loss is implemented in caffe, and the relevant code can be downloaded here.
 
