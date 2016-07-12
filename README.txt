@@ -2,11 +2,11 @@ We are releasing our codes/demo/dataset used in our project of image aesthetics 
 
 The AADB dataset is large (datasetImages.zip, 2.0GB), so we attach it to google drive. The link is 
 https://drive.google.com/open?id=0BxeylfSgpk1MOVduWGxyVlJFUHM
-from where a small AADB can also be downloaded with resized images (256x256 pixel resolution, datasetImages_warp256.zip, 130MB).
+from where a smaller version of AADB can also be downloaded with resized images (256x256 pixel resolution, datasetImages_warp256.zip, 130MB).
 
 Technically, the rank loss is implemented in caffe, and the relevant code can be downloaded here.
 
-Some models are also released along with a demo interface. Running the demo can give you a clear way on how to load/interpret the model.
+Some models are also released along with a demo interface. Running the demo can give you a clear way on how to load/interpret the model. The model can be downloaded from the google drive as well.
 
 For further questions, please refer to our ECCV2016 paper or send me email through (skong2 AT uci DOT edu)
 
