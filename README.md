@@ -15,10 +15,15 @@ For further questions, please refer to our ECCV2016 paper or send me email throu
 If you find our model/method/dataset useful, please cite our work:
 
 @inproceedings{gao2016compact,
+
   title={Compact Bilinear Pooling},
+
   author={Kong, Shu and Shen, Xiaohui and Lin, Zhe and Mech, Radomir and Fowlkes, Charless},
+
   booktitle={ECCV},
+
   year={2016}
+
 }
 
 Latest edit
