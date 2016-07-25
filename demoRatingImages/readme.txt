@@ -4,8 +4,9 @@
 % demonstrate our model, we use the matlab interface to load the model
 % (caffe version).
 %
-% The model can be downloaded from google drive as below. Put the 
-% downloaded folder containing the model in the current path.
+% The model can be downloaded from google drive as below. The model is 
+% in zip format, named "initModel.zip". Put the downloaded folder 
+% containing the model in the current path.
 % https://drive.google.com/open?id=0BxeylfSgpk1MOVduWGxyVlJFUHM
 %
 % 
