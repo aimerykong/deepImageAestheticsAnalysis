@@ -8,6 +8,7 @@ Technically, the rank loss is implemented in caffe. The modified caffe (named "c
 
 Some models are also released along with a demo interface. Running the demo can give you a clear way on how to load/interpret the model. The model can be downloaded from the google drive as well. As well, the models are for research purpose only as patent has been filed by Adobe.
 
+Besides, a model trained on AVA dataset is released and stored in google drive, named "AVA_modelRelease.zip". There are matlab code pieces to test the model. Note that the matcaffe path might need to change, but it's trivial.
 
 For further questions, please refer to our ECCV2016 paper or send me email through (skong2 AT uci DOT edu)
 
@@ -20,6 +21,6 @@ If you find our model/method/dataset useful, please cite our work:
 }
 
 Latest edit
-July 21, 2016
+Oct 19, 2016
 
 
