@@ -13,7 +13,7 @@ Besides, a model trained on AVA dataset is released and stored in google drive, 
 For further questions, please refer to our ECCV2016 paper or send me email through (skong2 AT uci DOT edu)
 
 If you find our model/method/dataset useful, please cite our work:
-@inproceedings{gao2016compact,
+@inproceedings{kong2016aesthetics,
   title={Photo Aesthetics Ranking Network with Attributes and Content Adaptation},
   author={Kong, Shu and Shen, Xiaohui and Lin, Zhe and Mech, Radomir and Fowlkes, Charless},
   booktitle={ECCV},
