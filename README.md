@@ -1,7 +1,7 @@
 # Photo Aesthetics Ranking Network with Attributes and Content Adaptation
 ### Code, demo and model for our project of deep image aesthetics analysis
 
-We are releasing our codes/demo/dataset used in our project of image aesthetics analysis. This project is jointed done in Adobe Research and UCI.
+We are releasing our codes/demo/dataset used in our project of image aesthetics analysis. This project is jointed done in Adobe Research and UCI. A patent is filed.
 
 ![alt text](http://www.ics.uci.edu/~skong2/img/aestheticsDemoFigure.png "display")
 
