@@ -14,12 +14,14 @@ import caffe
 import numpy as np
 from caffe.proto import caffe_pb2
 
+
 # AVA
 AVA_ROOT = '/Datasets/AVA/'
-IMAGE_MEAN= AVA_ROOT + 'imagenet_mean.binaryproto'
-DEPLOY = AVA_ROOT + 'initNetArch.deploy'
-MODEL_FILE = AVA_ROOT + 'initModel_iter_16000.caffemodel'
-# IMAGE_FILE = AVA_ROOT + "*jpg"
+IMAGE_MEAN= AVA_ROOT + 'mean_AADB_regression_warp256.binaryproto'
+DEPLOY = AVA_ROOT + 'initModel.prototxt'
+MODEL_FILE = AVA_ROOT + 'initModel.caffemodel'
+IMAGE_FILE = AVA_ROOT + "*jpg"
+
 
 #caffe.set_mode_gpu()
 caffe.set_mode_cpu()
@@ -28,10 +30,11 @@ caffe.set_mode_cpu()
 IMAGE_WIDTH = 227
 IMAGE_HEIGHT = 227
 
+input_layer = 'imgLow'
+
 '''
 Image processing helper function
 '''
-
 def transform_img(img, img_width=IMAGE_WIDTH, img_height=IMAGE_HEIGHT):
     #Image Resizing
     img = cv2.resize(img, (img_width, img_height), interpolation = cv2.INTER_CUBIC)
@@ -54,13 +57,13 @@ net = caffe.Net(DEPLOY,
 
 #Define image transformers
 print "Shape mean_array : ", mean_array.shape
-print "Shape net : ", net.blobs['data'].data.shape
-net.blobs['data'].reshape(1,        # batch size
+print "Shape net : ", net.blobs[input_layer].data.shape
+net.blobs[input_layer].reshape(1,        # batch size
                               3,         # channel
                               IMAGE_WIDTH, IMAGE_HEIGHT)  # image size
-transformer = caffe.io.Transformer({'data': net.blobs['data'].data.shape})
-transformer.set_mean('data', mean_array)
-transformer.set_transpose('data', (2,0,1))
+transformer = caffe.io.Transformer({input_layer: net.blobs[input_layer].data.shape})
+transformer.set_mean(input_layer, mean_array)
+transformer.set_transpose(input_layer, (2,0,1))
 
 '''
 Making predicitions
@@ -71,12 +74,29 @@ test_img_paths = [img_path for img_path in glob.glob(IMAGE_FILE)]
 #Making predictions
 test_ids = []
 preds = []
+best_image = ''
+best_score = 0.0
 for img_path in test_img_paths:
-    print img_path
     img = cv2.imread(img_path, cv2.IMREAD_COLOR)
     img = transform_img(img, img_width=IMAGE_WIDTH, img_height=IMAGE_HEIGHT)
 
-    net.blobs['data'].data[...] = transformer.preprocess('data', img)
+    net.blobs[input_layer].data[...] = transformer.preprocess(input_layer, img)
     out = net.forward()
     print out
-    print '-------'
+    #{'fc9_ColorHarmony': array([[ 0.22087261]], dtype=float32), 'fc9_MotionBlur': array([[-0.08059776]], dtype=float32), 'fc9_Light': array([[ 0.14933866]], dtype=float32), 'fc9_Content': array([[ 0.01467544]], dtype=float32), 'fc9_Repetition': array([[ 0.18157494]], dtype=float32), 'fc11_score': array([[ 0.55613178]], dtype=float32), 'fc9_DoF': array([[-0.05279735]], dtype=float32), 'fc9_VividColor': array([[ 0.13607402]], dtype=float32), 'fc9_Symmetry': array([[ 0.06802807]], dtype=float32), 'fc9_Object': array([[ 0.00289625]], dtype=float32), 'fc9_BalancingElement': array([[-0.04946293]], dtype=float32), 'fc9_RuleOfThirds': array([[-0.0477073]], dtype=float32)}
+
+
+    pred_score = out['fc11_score'][0][0]
+    print img_path, '\t', pred_score
+    if pred_score > best_score:
+        #print "Better score !"
+        best_score = pred_score
+        best_image = img_path
+
+    #test_ids = test_ids + [img_path.split('/')[-1][:-4]]
+    #preds = preds + [pred_probas.argmax()]
+
+
+    #print pred_probas.argmax()
+    #print '-------'
+print "Best image, based only on fc11_score = ", best_image
