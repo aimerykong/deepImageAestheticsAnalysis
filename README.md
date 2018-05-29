@@ -5,7 +5,7 @@ We are releasing our codes/demo/dataset used in our project of image aesthetics 
 
 ![alt text](http://www.ics.uci.edu/~skong2/img/aestheticsDemoFigure.png "display")
 
-The AADB dataset is large (datasetImages.zip, 2.0GB), so we attach it to [google drive](https://drive.google.com/open?id=0BxeylfSgpk1MOVduWGxyVlJFUHM) from where a smaller version of AADB can also be downloaded with resized images (256x256 pixel resolution, datasetImages_warp256.zip, 130MB). Please note that all the images are downloaded from flickr with Creative Commons license, so the dataset is for research purpose only.
+The AADB dataset is large (datasetImages.zip, 2.0GB), so we attach it to [**google drive**](https://drive.google.com/open?id=0BxeylfSgpk1MOVduWGxyVlJFUHM) from where a smaller version of AADB can also be downloaded with resized images (256x256 pixel resolution, [datasetImages_warp256.zip](https://drive.google.com/open?id=0BxeylfSgpk1MU2RsVXo3bEJWM2c), 130MB). Please note that all the images are downloaded from flickr with Creative Commons license, so the dataset is for research purpose only.
 
 Technically, the rank loss is implemented in caffe. The modified caffe (named "caffeCustom.zip") can be downloaded in the google drive. An example prototxt to train the model can also be found there, named "mergedNetRank.prototxt". 
 
